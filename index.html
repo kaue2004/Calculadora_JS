@@ -1,6 +1,6 @@
 <style>
 body{
-  background-image: linear-gradient(to right,red,blue);
+  background-image: linear-gradient(to right,rgb(0, 0, 0),rgb(48, 48, 56));
 }
 *{
   padding: 0px;
@@ -65,12 +65,13 @@ function backSpace(){
     
     <center><input type="text" id="window" class="window" readonly></center>
 
-<center><table>
+<center>
+  <table>
 
 
   <tr>
     <td><input class="key" type="button" value="C" onclick="clearWindow()"></td>
-    <td><input class="key" type="button" value="<" onclick="backSpace()"></td>
+    <td><input class="key" type="button" value="◀" onclick="backSpace()"></td>
     <td><input class="key" type="button" value="/" onclick="add('/')"></td>
     <td><input class="key" type="button" value="*" onclick="add('*')"></td>
   </tr>
@@ -93,7 +94,7 @@ function backSpace(){
     <td rowspan="3"><input class="key" type="button" value="=" style="height: 125px;" onclick="result()"></td>
   </tr>
   <tr>
-    <td colspan="2"><input class="key" type="button" value="0" style="width: 125px;" onclick="add('70')"></td>
+    <td colspan="2"><input class="key" type="button" value="0" style="width: 125px;" onclick="add('0')"></td>
     <td><input class="key" type="button" value="." onclick="add('.')"></td>
   </tr>
 </table></center>
