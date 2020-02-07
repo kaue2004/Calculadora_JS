@@ -1,105 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculadora JS</title>
-</head>
 <style>
-    *{
-        padding: 0;
-        margin: 0 auto;
-    }
-    body{
-        background: #333;
-    }
-    .calculadora{
-        position: relative;
-        top: 150px;
-        width: 200px;
-        height: 300px;
-        background: white;
-    }
-     [type=button]{
-        width: 41px;
-        height: 40px;
-        margin: 3px;
-    }
-    input[type=text]{
-        width: 92%;
-        height: 40px;
-        text-align: right;
-        padding: 5px;
-    }
-    @media only screen and (max-device-width: 420px) {
-        [type=button]{
-        width: 37px;
-        height: 40px;
-
-    }  
-        .calculadora{
-        position: relative;
-        top: 90px;
-        width: 200px;
-        height: 270px;
-        background: white;
-    }
-    }
+body{
+  background-image: linear-gradient(to right,red,blue);
+}
+*{
+  padding: 0px;
+  margin: 0px;
+}
+.key{
+    width:60px;
+    height:60px;
+    font-size: 25px;
+    margin: 2px;
+    color: white;
+    background-color: transparent;
+    border: 1px 1px;
+    border-style: solid;
+    border-color: white;
+}
+.window{
+    width: 90%;
+    height: 80px;
+    font-size: 50px;
+    margin: 2px;
+    text-align: center;  
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+.main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.key:hover{
+  box-shadow: 0px 0px 10px white;
+}
 </style>
-<Script>
-    function num(digito){
-        var visor = document.getElementById("tela")
-        if(visor.value == 0){
-            visor.value = digito
-        }else{
-            visor.value += digito 
-        }
-        
-    }
-    function resultado(){
-        visor = document.getElementById("tela")
-        visor.value = (eval(visor.value))
-    }
-    function limpar(){
-        visor = document.getElementById("tela")
-        visor.value = 0
-    }
-</Script>
+
+<script>
+function add(key){
+  textview = document.getElementById('window');
+  textview.value += key;
+}
+function result(){
+  textview = document.getElementById('window');
+  textview.value = eval(textview.value);
+  copyButton = document.getElementById('copybutton');
+  document.getElementById('copybutton').add;
+}
+function clearWindow(){
+  textview = document.getElementById('window');
+  textview.value = "";
+}
+function backSpace(){
+  textview = document.getElementById('window');
+  textview.value = textview.value.slice(0,-1);
+}
+</script>
+
 <body>
-    <div class="calculadora">
-        <div class="visor">
-            <input type="text" id="tela" value="0" readonly>
-        </div> 
-        <div class="bts">
-            <div class="linhas">
-                <input onclick="limpar('CE')" type="button" value="CE">
-            </div>
-            <div class="linhas">
-                <input onclick="num(7)" type="button" value="7">
-                <input onclick="num(8)" type="button" value="8">
-                <input onclick="num(9)" type="button" value="9">
-                <input onclick="num('*')" type="button" value="*">
-            </div>
-            <div class="linhas">
-                <input onclick="num(4)" type="button" value="4">
-                <input onclick="num(5)" type="button" value="5">
-                <input onclick="num(6)" type="button" value="6">
-                <input onclick="num('-')" type="button" value="-">
-            </div>
-            <div class="linhas">
-                <input onclick="num(1)" type="button" value="1">
-                <input onclick="num(2)" type="button" value="2">
-                <input onclick="num(3)" type="button" value="3">
-                <input onclick="num('/')" type="button" value="/">
-            </div>
-            <div class="linhas">
-                <input onclick="num('.')" type="button" value=".">
-                <input onclick="num(0)" type="button" value="0">
-                <input onclick="num('+')" type="button" value="+">
-                <input onclick="resultado('=')" type="button" value="=">
-            </div>
-        </div>
-    </div>
+<div class="main">
+    
+    <center><input type="text" id="window" class="window" readonly></center>
+
+<center><table>
+
+
+  <tr>
+    <td><input class="key" type="button" value="C" onclick="clearWindow()"></td>
+    <td><input class="key" type="button" value="<" onclick="backSpace()"></td>
+    <td><input class="key" type="button" value="/" onclick="add('/')"></td>
+    <td><input class="key" type="button" value="*" onclick="add('*')"></td>
+  </tr>
+  <tr>
+    <td><input class="key" type="button" value="7" onclick="add('7')"></td>
+    <td><input class="key" type="button" value="8" onclick="add('8')"></td>
+    <td><input class="key" type="button" value="9" onclick="add('9')"></td>
+    <td><input class="key" type="button" value="-" onclick="add('-')"></td>
+  </tr>
+  <tr>
+    <td><input class="key" type="button" value="4" onclick="add('4')"></td>
+    <td><input class="key" type="button" value="5" onclick="add('5')"></td>
+    <td><input class="key" type="button" value="6" onclick="add('6')"></td>
+    <td><input class="key" type="button" value="+" onclick="add('+')"></td>
+  </tr>
+  <tr>
+    <td><input class="key" type="button" value="1" onclick="add('1')"></td>
+    <td><input class="key" type="button" value="2" onclick="add('2')"></td>
+    <td><input class="key" type="button" value="3" onclick="add('3')"></td>
+    <td rowspan="3"><input class="key" type="button" value="=" style="height: 125px;" onclick="result()"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input class="key" type="button" value="0" style="width: 125px;" onclick="add('70')"></td>
+    <td><input class="key" type="button" value="." onclick="add('.')"></td>
+  </tr>
+</table></center>
+
+</div>
+
 </body>
 </html>
