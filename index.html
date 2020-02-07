@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora JS</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0 auto;
+    }
+    body{
+        background: #333;
+    }
+    .calculadora{
+        position: relative;
+        top: 150px;
+        width: 200px;
+        height: 300px;
+        background: white;
+    }
+     [type=button]{
+        width: 41px;
+        height: 40px;
+        margin: 3px;
+    }
+    input[type=text]{
+        width: 92%;
+        height: 40px;
+        text-align: right;
+        padding: 5px;
+    }
+</style>
+<Script>
+    function num(digito){
+        var visor = document.getElementById("tela")
+        if(visor.value == 0){
+            visor.value = digito
+        }else{
+            visor.value += digito 
+        }
+        
+    }
+    function resultado(){
+        visor = document.getElementById("tela")
+        visor.value = (eval(visor.value))
+    }
+    function limpar(){
+        visor = document.getElementById("tela")
+        visor.value = 0
+    }
+</Script>
+<body>
+    <div class="calculadora">
+        <div class="visor">
+            <input type="text" id="tela" value="0" readonly>
+        </div> 
+        <div class="bts">
+            <div class="linhas">
+                <input onclick="limpar('CE')" type="button" value="CE">
+            </div>
+            <div class="linhas">
+                <input onclick="num(7)" type="button" value="7">
+                <input onclick="num(8)" type="button" value="8">
+                <input onclick="num(9)" type="button" value="9">
+                <input onclick="num('*')" type="button" value="*">
+            </div>
+            <div class="linhas">
+                <input onclick="num(4)" type="button" value="4">
+                <input onclick="num(5)" type="button" value="5">
+                <input onclick="num(6)" type="button" value="6">
+                <input onclick="num('-')" type="button" value="-">
+            </div>
+            <div class="linhas">
+                <input onclick="num(1)" type="button" value="1">
+                <input onclick="num(2)" type="button" value="2">
+                <input onclick="num(3)" type="button" value="3">
+                <input onclick="num('/')" type="button" value="/">
+            </div>
+            <div class="linhas">
+                <input onclick="num('.')" type="button" value=".">
+                <input onclick="num(0)" type="button" value="0">
+                <input onclick="num('+')" type="button" value="+">
+                <input onclick="resultado('=')" type="button" value="=">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
